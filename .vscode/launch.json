@@ -9,6 +9,16 @@
             "mainClass": "com.example.springbootwebapplication.SpringbootWebapplicationApplication",
             "projectName": "springboot-webapplication",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootModelviewApplication<springboot-modelview>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.springbootmodelview.SpringbootModelviewApplication",
+            "projectName": "springboot-modelview",
+            "args": ""
         }
     ]
 }

@@ -15,14 +15,12 @@ public class JspController {
     public String jspHome(@RequestParam("myText") String myTextObj, HttpSession sessionObj) {
 
 
-
         System.out.println("Inside jspHome() " + myTextObj);
 
         sessionObj.setAttribute("myText", myTextObj); 
 
        /* Before including @RequestParam("myText"), URL format - localhost:8080/home?myTextObj=welcome+blah+blah!
         After including @RequestParam("myText"), URL format - localhost:8080/home?myText=welcome+blah+blah! */
-        
         return "home";
     }
 
