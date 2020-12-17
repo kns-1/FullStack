@@ -19,6 +19,16 @@
             "mainClass": "com.example.springbootmodelview.SpringbootModelviewApplication",
             "projectName": "springboot-modelview",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootJpaApplication<springboot-jpa>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.springbootjpa.SpringbootJpaApplication",
+            "projectName": "springboot-jpa",
+            "args": ""
         }
     ]
 }
