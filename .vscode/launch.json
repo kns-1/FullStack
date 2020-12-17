@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootWebapplicationApplication<springboot-webapplication>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.springbootwebapplication.SpringbootWebapplicationApplication",
+            "projectName": "springboot-webapplication",
+            "args": ""
+        }
+    ]
+}
