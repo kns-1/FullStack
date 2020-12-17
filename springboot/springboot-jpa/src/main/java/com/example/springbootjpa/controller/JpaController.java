@@ -30,7 +30,7 @@ public class JpaController {
     public ModelAndView getJpaId(@RequestParam int jpaId) {
         
         ModelAndView mvObj = new ModelAndView("showJpa.jsp");
-        DemoJpa jpaObj = repo.findById(jpaId).orElseThrow(() -> new IllegalArgumentException("Invalid JPA Id"));
+        DemoJpa jpaObj = repo.findById(jpaId).orElse(new DemoJpa());
         
         mvObj.addObject("myjpaobj",jpaObj);
 
