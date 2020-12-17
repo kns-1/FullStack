@@ -9,6 +9,7 @@ public class DemoJpa {
     @Id
     private int jpaId;
     private String jpaName;
+    private String jpaText;
 
     public int getJpaId() {
         return jpaId;
@@ -26,9 +27,17 @@ public class DemoJpa {
         this.jpaName = jpaName;
     }
 
+    public String getJpaText() {
+        return jpaText;
+    }
+
+    public void setJpaText(String jpaText) {
+        this.jpaText = jpaText;
+    }
+
     @Override
     public String toString() {
-        return "DemoJpa [jpaId=" + jpaId + ", jpaName=" + jpaName + "]";
+        return "DemoJpa [jpaId=" + jpaId + ", jpaName=" + jpaName + ", jpaText=" + jpaText + "]";
     }
-        
+      
 }

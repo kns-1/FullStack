@@ -6,6 +6,8 @@ import com.example.springbootjpa.model.DemoJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class JpaController {
@@ -22,5 +24,16 @@ public class JpaController {
     public String addJpaHome(DemoJpa demoJpaObj) {
         repo.save(demoJpaObj);
         return "home.jsp";
+    }
+
+    @RequestMapping("/getJpa")
+    public ModelAndView getJpaId(@RequestParam int jpaId) {
+        
+        ModelAndView mvObj = new ModelAndView("showJpa.jsp");
+        DemoJpa jpaObj = repo.findById(jpaId).orElseThrow(() -> new IllegalArgumentException("Invalid JPA Id"));
+        
+        mvObj.addObject("myjpaobj",jpaObj);
+
+        return mvObj;
     }
 }

@@ -12,6 +12,12 @@
         <form action = "addJpa">
             Enter JPA-ID:   <input type="number" name="jpaId"> <br><br>
             Enter JPA-Name: <input type="text" name="jpaName"> <br><br>
+            <input type="submit" value="Submit"> <br><br><br>
+        </form>
+
+        Display details:
+        <form action = "getJpa">
+            Enter JPA-ID:   <input type="number" name="jpaId"> <br><br>
             <input type="submit" value="Submit"> <br>
         </form>
 
