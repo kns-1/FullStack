@@ -22,7 +22,6 @@ public class JspController {
         mvObj.addObject("myText", myTextObj);
         mvObj.setViewName("home");
 
-
        /* Before including @RequestParam("myText"), URL format - localhost:8080/home?myTextObj=welcome+blah+blah!
         After including @RequestParam("myText"), URL format - localhost:8080/home?myText=welcome+blah+blah! */        return mvObj;
     }
