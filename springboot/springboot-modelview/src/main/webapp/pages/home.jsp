@@ -9,7 +9,9 @@
 
     <body>
         My First Springboot Webapp blah blah!
-        Session text is: ${myText} <!-- This is JSTL format -->
+      <!--  Session/ModelAndView text is: ${myText} --> <!-- This is JSTL format -->
+        Model Object data is: ID = ${modelObj.moId} , Name = ${modelObj.moName} , Text = ${modelObj.moText}
+
     </body>
 
     </html>
