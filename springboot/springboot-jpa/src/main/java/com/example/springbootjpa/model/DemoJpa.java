@@ -1,7 +1,12 @@
 package com.example.springbootjpa.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class DemoJpa {
 
+    @Id
     private int jpaId;
     private String jpaName;
 
