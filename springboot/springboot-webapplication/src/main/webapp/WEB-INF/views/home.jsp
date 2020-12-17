@@ -9,6 +9,7 @@
 
     <body>
         My First Springboot Webapp blah blah!
+        Session text is: ${myText} <!-- This is JSTL format -->
     </body>
 
     </html>
