@@ -7,6 +7,7 @@ import com.example.springbootjpa.dao.JpaInterfaceRepo;
 import com.example.springbootjpa.model.DemoJpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -140,6 +141,9 @@ public class JpaController {
     
     @PostMapping(path = "/addJpaData", consumes = {"application/json"}) //consumes/accepts only JSON values to post to the database
     public DemoJpa addJpaData(@RequestBody DemoJpa demoJpaObj) { //@RequestBody is used to Post data in RAW format
+         
+        // URL Format: http://localhost:8080/addJpaData
+        
         repo.save(demoJpaObj);
         return demoJpaObj;
     }
@@ -165,6 +169,20 @@ public class JpaController {
         //Download "Postman", which is an API Client used to submit, add, update or delete data through API (URL)
         
         return repo.findById(jpaId); //converting Iterable value to string
+    }
+
+
+    //DELETING data from API
+    @DeleteMapping("/deleteJpaData/{jpaId}")
+    public String deleteJpaData(@PathVariable int jpaId) {
+   
+        DemoJpa jpaObj = repo.getOne(jpaId);
+
+        // URL Format: http://localhost:8080/deleteJpaData
+
+        repo.delete(jpaObj);
+
+        return "deleted requested data";
     }
 
 }
