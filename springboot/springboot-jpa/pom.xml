@@ -34,6 +34,14 @@
 			<artifactId>tomcat-jasper</artifactId>
 			<version>9.0.41</version>
 		</dependency>
+
+		<!-- Used for Content Negotiation using Postman (just add only a simple XML dependency as shown below) to get data in XML format - https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.11.3</version>
+		</dependency>
+
 		
 		<dependency>
 			<groupId>com.h2database</groupId>

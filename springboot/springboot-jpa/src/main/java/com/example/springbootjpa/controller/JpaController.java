@@ -1,5 +1,8 @@
 package com.example.springbootjpa.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import com.example.springbootjpa.dao.JpaInterfaceRepo;
 import com.example.springbootjpa.model.DemoJpa;
 
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.servlet.ModelAndView;
 
+
 @Controller
 public class JpaController {
 
@@ -21,48 +25,107 @@ public class JpaController {
     public String jspHome() {
         return "home.jsp";
     }
-    
+
     @RequestMapping("/addJpa")
     public String addJpaHome(DemoJpa demoJpaObj) {
         repo.save(demoJpaObj);
         return "home.jsp";
     }
 
-  /* @RequestMapping("/getJpa")
-    public ModelAndView getJpaId(@RequestParam int jpaId) {
-        
-        ModelAndView mvObj = new ModelAndView("showJpa.jsp");
-        DemoJpa jpaObj = repo.findById(jpaId).orElse(new DemoJpa());
-        
-        // System.out.println(repo.findByJpaName("abc"));
-        // System.out.println(repo.findByJpaIdGreaterThan(3));
-        // System.out.println(repo.findByJpaNameSorted("abc"));
-        
+    /*
+     * @RequestMapping("/getJpa") public ModelAndView getJpaId(@RequestParam int
+     * jpaId) {
+     * 
+     * ModelAndView mvObj = new ModelAndView("showJpa.jsp"); DemoJpa jpaObj =
+     * repo.findById(jpaId).orElse(new DemoJpa());
+     * 
+     * // System.out.println(repo.findByJpaName("abc")); //
+     * System.out.println(repo.findByJpaIdGreaterThan(3)); //
+     * System.out.println(repo.findByJpaNameSorted("abc"));
+     * 
+     * 
+     * mvObj.addObject("myjpaobj",jpaObj);
+     * 
+     * return mvObj; }
+     */
 
-        mvObj.addObject("myjpaobj",jpaObj);
+    /*
+     * //get data by a url name provided in @RequestMapping
+     * 
+     * @RequestMapping("/demojpa") //url by tablename or any desired name
+     * 
+     * @ResponseBody //tell compiler that I am returning data and not a View(jsp or
+     * other scripts) names public String getJpaData() {
+     * 
+     * //URL Format: http://localhost:8080/demojpa
+     * 
+     * return repo.findAll().toString(); //converting Iterable value to string }
+     * 
+     * //get data by a url name and a data-value provided in @RequestMapping
+     * 
+     * @RequestMapping("/demojpa/{jpaId}") //url by tablename or any desired name
+     * 
+     * @ResponseBody //tell compiler that I am returning data and not a View(jsp or
+     * other scripts) names public String getJpaDataId(@PathVariable("jpaId") int
+     * jpaId) {
+     * 
+     * //URL Format: http://localhost:8080/demojpa/2
+     * 
+     * return repo.findById(jpaId).toString(); //converting Iterable value to string
+     * }
+     * 
+     */
 
-        return mvObj;
-    } 
-    */
+    // JpaRepository demo: get data on broser in JSON format/any other String
+    // formats
 
-    //get data by a url name provided in @RequestMapping
-    @RequestMapping("/demojpa") //url by tablename or any desired name
-    @ResponseBody //tell compiler that I am returning data and not a View(jsp or other scripts) names
-    public String getJpaData() {
-        
-        //URL Format: http://localhost:8080/demojpa
+   /* @RequestMapping("/demojpa") // url by tablename or any desired name
+    @ResponseBody // tell compiler that I am returning data and not a View(jsp or other scripts)
+                  // names
+    public List<DemoJpa> getJpaData() {
 
-        return repo.findAll().toString(); //converting Iterable value to string
+        // URL Format: http://localhost:8080/demojpa
+
+        return repo.findAll();
     }
 
-    //get data by a url name and a data-value provided in @RequestMapping
-    @RequestMapping("/demojpa/{jpaId}") //url by tablename or any desired name
-    @ResponseBody //tell compiler that I am returning data and not a View(jsp or other scripts) names
-    public String getJpaDataId(@PathVariable("jpaId") int jpaId) {
-        
+    // get data by a url name and a data-value provided in @RequestMapping
+    @RequestMapping("/demojpa/{jpaId}") // url by tablename or any desired name
+    @ResponseBody // tell compiler that I am returning data and not a View(jsp or other scripts)
+                  // names
+    public Optional<DemoJpa> getJpaDataId(@PathVariable("jpaId") int jpaId) {
+        //here, if there is no data, the method will return OPTIONAL data
+
         //URL Format: http://localhost:8080/demojpa/2
-
-        return repo.findById(jpaId).toString(); //converting Iterable value to string
+        //Download "Postman", which is an API Client used to submit, add, update or delete data through API (URL)
+        
+        return repo.findById(jpaId); //converting Iterable value to string
     }
+*/
+
+    //Content Negotiation Demo - get/post data in desired format (xml,json etc.)
+    @RequestMapping(path = "/demojpa", produces = {"application/xml"}) // url by tablename or any desired name that produces data in ONLY XML format
+    @ResponseBody // tell compiler that I am returning data and not a View(jsp or other scripts)
+                  // names
+    public List<DemoJpa> getJpaData() {
+
+        // URL Format: http://localhost:8080/demojpa
+
+        return repo.findAll();
+    }
+
+    // get data by a url name and a data-value provided in @RequestMapping
+    @RequestMapping(path = "/demojpa/{jpaId}", produces = {"application/xml"}) // url by tablename or any desired name that produces data in ONLY XML format
+    @ResponseBody // tell compiler that I am returning data and not a View(jsp or other scripts)
+                  // names
+    public Optional<DemoJpa> getJpaDataId(@PathVariable("jpaId") int jpaId) {
+        //here, if there is no data, the method will return OPTIONAL data
+
+        //URL Format: http://localhost:8080/demojpa/2
+        //Download "Postman", which is an API Client used to submit, add, update or delete data through API (URL)
+        
+        return repo.findById(jpaId); //converting Iterable value to string
+    }
+
 
 }
