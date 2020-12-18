@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
@@ -172,7 +173,7 @@ public class JpaController {
     }
 
 
-    //DELETING data from API
+    //DELETING data from database through API
     @DeleteMapping("/deleteJpaData/{jpaId}")
     public String deleteJpaData(@PathVariable int jpaId) {
    
@@ -183,6 +184,17 @@ public class JpaController {
         repo.delete(jpaObj);
 
         return "deleted requested data";
+    }
+
+
+    //PUT/UPDATE data through API
+    @PutMapping(path = "/putJpaData", consumes = {"application/json"}) //consumes/accepts only JSON values to post to the database
+    public DemoJpa updateJpaData(@RequestBody DemoJpa demoJpaObj) { //@RequestBody is used to Post data in RAW format
+         
+        // URL Format: http://localhost:8080/addJpaData
+        
+        repo.save(demoJpaObj);
+        return demoJpaObj;
     }
 
 }
