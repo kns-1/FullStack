@@ -7,15 +7,19 @@ import com.example.springbootjpa.dao.JpaInterfaceRepo;
 import com.example.springbootjpa.model.DemoJpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+//import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
+//@Controller
+@RestController //For REST post request demo
 public class JpaController {
 
     @Autowired
@@ -103,7 +107,7 @@ public class JpaController {
     }
 */
 
-    //Content Negotiation Demo - get/post data in desired format (xml,json etc.)
+ /*   //Content Negotiation Demo - get/post data in desired format (xml,json etc.)
     @RequestMapping(path = "/demojpa", produces = {"application/xml"}) // url by tablename or any desired name that produces data in ONLY XML format
     @ResponseBody // tell compiler that I am returning data and not a View(jsp or other scripts)
                   // names
@@ -127,5 +131,39 @@ public class JpaController {
         return repo.findById(jpaId); //converting Iterable value to string
     }
 
+    */
+
+
+
+    //REST post data demo - post data to database from API
+    
+    @PostMapping("/addJpaData")
+    public DemoJpa addJpaData(DemoJpa demoJpaObj) {
+        repo.save(demoJpaObj);
+        return demoJpaObj;
+    }
+  
+  
+    @GetMapping(path = "/demojpa") // url by tablename or any desired name that produces data in ONLY XML format
+    public List<DemoJpa> getJpaData() {
+
+        // URL Format: http://localhost:8080/demojpa
+
+        return repo.findAll();
+    }
+
+    
+    // get data by a url name and a data-value provided in @RequestMapping
+    @RequestMapping(path = "/demojpa/{jpaId}") // url by tablename or any desired name that produces data in ONLY XML format
+    @ResponseBody // tell compiler that I am returning data and not a View(jsp or other scripts)
+                  // names
+    public Optional<DemoJpa> getJpaDataId(@PathVariable("jpaId") int jpaId) {
+        //here, if there is no data, the method will return OPTIONAL data
+
+        //URL Format: http://localhost:8080/demojpa/2
+        //Download "Postman", which is an API Client used to submit, add, update or delete data through API (URL)
+        
+        return repo.findById(jpaId); //converting Iterable value to string
+    }
 
 }
