@@ -32,6 +32,9 @@ public class JpaController {
         ModelAndView mvObj = new ModelAndView("showJpa.jsp");
         DemoJpa jpaObj = repo.findById(jpaId).orElse(new DemoJpa());
         
+        System.out.println(repo.findByJpaName("abc"));
+        System.out.println(repo.findByJpaIdGreaterThan(3));
+
         mvObj.addObject("myjpaobj",jpaObj);
 
         return mvObj;
