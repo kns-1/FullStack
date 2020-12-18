@@ -29,6 +29,25 @@
             "mainClass": "com.example.springbootjpa.SpringbootJpaApplication",
             "projectName": "springboot-jpa",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootDataRestApplication<springboot-data-rest>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.springbootdatarest.SpringbootDataRestApplication",
+            "projectName": "springboot-data-rest",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MavenWrapperDownloader",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "MavenWrapperDownloader",
+            "args": ""
         }
     ]
 }
