@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -137,8 +138,8 @@ public class JpaController {
 
     //REST post data demo - post data to database from API
     
-    @PostMapping("/addJpaData")
-    public DemoJpa addJpaData(DemoJpa demoJpaObj) {
+    @PostMapping(path = "/addJpaData", consumes = {"application/json"}) //consumes/accepts only JSON values to post to the database
+    public DemoJpa addJpaData(@RequestBody DemoJpa demoJpaObj) { //@RequestBody is used to Post data in RAW format
         repo.save(demoJpaObj);
         return demoJpaObj;
     }
