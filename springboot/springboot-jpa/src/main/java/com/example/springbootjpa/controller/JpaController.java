@@ -34,6 +34,7 @@ public class JpaController {
         
         System.out.println(repo.findByJpaName("abc"));
         System.out.println(repo.findByJpaIdGreaterThan(3));
+        System.out.println(repo.findByJpaNameSorted("abc"));
 
         mvObj.addObject("myjpaobj",jpaObj);
 
