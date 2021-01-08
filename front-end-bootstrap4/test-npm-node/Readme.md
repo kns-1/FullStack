@@ -17,3 +17,5 @@ Commands:
 4. Create "index.html" file for demo
 
 5. >npm start
+
+6. Create "gitignore" file and add "node_modules" folder to it.
