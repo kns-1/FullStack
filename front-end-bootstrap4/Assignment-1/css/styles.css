@@ -3,17 +3,25 @@
     padding: 0px auto;
 }
 
+.row-content {
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+}
+
+.row-intro {
+    margin: 40px auto;
+}
+
+.footer {
+    background-color: #c8bce2;
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+}
+
 
 .jumbotron {
     padding: 70px 30px 70px 30px;
     margin: 0px auto;
     background-color: #8560c4;
     color: white;
-}
-
-
-.footer {
-    background-color: #c8bce2;
-    margin: 0px auto;
-    padding: 20px 0px 20px 0px;
 }
