@@ -27,5 +27,16 @@
 .address {
     font-size: 80%;
     margin: 0px;
-    color: brown;
+    color: lightgray;
+}
+
+.copyright-content {
+    padding: 20px 0px 0px 0px;
+    font-size: 70%;
+    margin: 1px;
+    color: lightgoldenrodyellow;
+}
+
+.links-content {
+    color: pink;
 }
