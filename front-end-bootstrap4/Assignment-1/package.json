@@ -1,0 +1,29 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "Assignment-1 of the course (About Us webpage)",
+  "main": "aboutus.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kns-1/FullStack.git"
+  },
+  "author": "Navya Sushmitha Kovuru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kns-1/FullStack/issues"
+  },
+  "homepage": "https://github.com/kns-1/FullStack#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
