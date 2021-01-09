@@ -1,5 +1,6 @@
 Go to current workspace (where package.json has to be created)
 1. ...Bootstrap4/confusion>npm install
+>npm init
 
 2. Install lite-server for auto-sync to the webpage
 >npm install lite-server --save-dev
