@@ -1,4 +1,5 @@
-1. >npm install
+Go to current workspace (where package.json has to be created)
+1. ...Bootstrap4/confusion>npm install
 
 2. Install lite-server for auto-sync to the webpage
 >npm install lite-server --save-dev
@@ -26,3 +27,17 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
+*****************************************************************************
+
+For icons/buttons on webpage:
+
+1. Install FontAwesome and BootstrapSocial packages into your system for including icons/buttons in the webpage.
+>npm install font-awesome --save
+>npm install bootstrap-social --save
+
+2. Include the following code in the <head>
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/styles.css">
