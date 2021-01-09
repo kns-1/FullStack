@@ -10,6 +10,10 @@
     min-height: 400px;
 }
 
+.row-intro {
+    margin: 40px auto;
+}
+
 .footer {
     background-color: lightslategray;
     margin: 0px auto;
