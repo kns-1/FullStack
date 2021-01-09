@@ -15,10 +15,10 @@
 }
 
 .footer {
-    background-color: lightslategray;
+    background-color: #c8bce2;
     margin: 0px auto;
     padding: 20px 0px 20px 0px;
-    color: azure;
+    color: black;
 }
 
 .jumbotron {
@@ -35,10 +35,8 @@ address {
 }
 
 .copyright-content {
-    padding: 20px 0px 0px 0px;
-    font-size: 70%;
-    margin: 1px;
-    color: lightgoldenrodyellow;
+    margin: 0px;
+    color: black;
 }
 
 .links-content {
@@ -51,7 +49,7 @@ body {
 }
 
 .navbar-dark{
-    background-color: purple;
+    background-color: #512DA8;
 }
 
 .card-header {
