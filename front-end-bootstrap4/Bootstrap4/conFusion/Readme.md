@@ -53,3 +53,13 @@ For "Less" scripts:
 2. Using lessc to automatically convert less code into css code
 ...Bootstrap4/confusion/css> lessc styles.less styles.css
 
+For "Scss" scripts:
+1. Installing "node-saas" module
+>npm install --save-dev node-sass
+
+2. Next open your package.json file and add the following line into the scripts object there.  
+
+   "scss": "node-sass -o css/ css/"
+
+3. To automatically convert less code into css code
+>npm run scss
