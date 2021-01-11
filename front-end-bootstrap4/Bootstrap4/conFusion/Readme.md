@@ -1,5 +1,5 @@
 Go to current workspace (where package.json has to be created)
-1. ...Bootstrap4/confusion>npm install
+1. ...Bootstrap4/confusion> npm install
 >npm init
 
 2. Install lite-server for auto-sync to the webpage
@@ -42,3 +42,14 @@ For icons/buttons on webpage:
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="css/styles.css">
+
+
+*******************************************************************
+
+For "Less" scripts:
+1. Installing "lessc" Compiler
+>npm install -g less@2.7.2
+
+2. Using lessc to automatically convert less code into css code
+...Bootstrap4/confusion/css> lessc styles.less styles.css
+
