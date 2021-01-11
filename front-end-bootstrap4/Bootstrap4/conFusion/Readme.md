@@ -63,3 +63,11 @@ For "Scss" scripts:
 
 3. To automatically convert less code into css code
 >npm run scss
+
+
+*****************************************************************************************
+
+NPM Scripts:
+
+>npm install --save-dev onchange parallelshell@3.0.1 
+(parallelshell v.3.0.2 has error)
