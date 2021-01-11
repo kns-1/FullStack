@@ -1,0 +1,33 @@
+{
+  "name": "assignment-4",
+  "version": "1.0.0",
+  "description": "Assignment-4 of the course",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kns-1/FullStack.git"
+  },
+  "author": "Navya Sushmitha Kovuru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kns-1/FullStack/issues"
+  },
+  "homepage": "https://github.com/kns-1/FullStack#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  }
+}
