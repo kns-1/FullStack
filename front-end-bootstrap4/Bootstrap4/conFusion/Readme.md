@@ -64,10 +64,75 @@ For "Scss" scripts:
 3. To automatically convert less code into css code
 >npm run scss
 
+package.json:
+
+"scripts": {
+"start": "npm run watch:all",
+"test": "echo \"Error: no test specified\" && exit 1",
+"lite": "lite-server",
+"scss": "node-sass -o css/ css/",
+"watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+"watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
+},
 
 *****************************************************************************************
 
 NPM Scripts:
 
->npm install --save-dev onchange parallelshell@3.0.1 
+1. >npm install --save-dev onchange parallelshell@3.0.1 
 (parallelshell v.3.0.2 has error)
+
+Build a distribution folder containing the files that can be deployed on a web server hosting your project:
+
+1. Cleaning up a Distribution Folder
+>npm install --save-dev rimraf
+>npm run clean
+
+"clean": "rimraf dist",
+
+2. Copying font-awesome files to distribution folder
+>npm -g install copyfiles
+>npm run copyfonts
+
+ "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+
+3. Compressing and Minifying Images
+>npm -g install imagemin-cli
+
+ "imagemin": "imagemin img/* --out-dir='dist/img'"
+
+
+package.json:
+
+"scripts": {
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* --out-dir='dist/img'"
+  },
+
+
+4. Preparing the Distribution Folder:
+- Add "dist" to .gitignore file
+
+5. >npm install --save-dev usemin-cli@0.5.1 cssmin@0.4.3 uglifyjs@2.4.11 htmlmin@0.0.7
+
+- Add these lines to package.json "scripts" block:
+
+"usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+"build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
+
+6. >npm run build 
+
+
+
+
+
+   
+
+

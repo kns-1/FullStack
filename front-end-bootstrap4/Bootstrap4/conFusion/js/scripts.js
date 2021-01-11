@@ -1,5 +1,13 @@
 $(document).ready(function () {
-    
+
+    $('#loginButton').click(function() {
+        $('#loginModal').modal('toggle');
+    });
+
+    $('#reserveTableButton').click(function() {
+        $('#reserveModal').modal('toggle');
+    });
+
     $('#myCarousel').carousel({ interval: 2000 }); //set sliding interval to 2000 ms.
 
     /*    $('#carouselPause').click(function() {
@@ -23,14 +31,6 @@ $(document).ready(function () {
             $('#carouselButton').children('span').addClass('fa-pause');
         }
         
-    });
-
-    $('#reserveTableButton').click(function() {
-        $('#reserveModal').modal('toggle');
-    });
-    
-    $('#loginButton').click(function() {
-        $('#loginModal').modal('toggle');
-    });
+    });   
     
 });
