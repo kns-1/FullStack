@@ -136,10 +136,82 @@ Grunt and Gulp Task Runners:
 1. >npm -g install grunt-cli
 >npm install grunt --save-dev
 
-2. 
+2. >npm install --save-dev grunt-sass
+>npm install --save-dev time-grunt jit-grunt
+
+3. Create gruntfile.js
+
+'use strict';
+
+module.exports = function(grunt) {
+
+    require('time-grunt')(grunt);
+
+    require('jit-grunt')(grunt);
+
+    grunt.initConfig({
+        sass: {
+            dist: {
+                files: {
+                    'css/styles.css': 'css/styles.scss'
+                }
+            }
+        }
+
+    });
+    grunt.registerTask('css', ['sass']);
+};
 
 
+4. Convert scss file to css file
+>grunt css
 
-   
+Watch and Serve Tasks:
 
+1. >npm install --save-dev grunt-contrib-watch
+>npm install --save-dev grunt-browser-sync
 
+2. Edit gruntfile.js
+
+'use strict';
+
+module.exports = function(grunt) {
+
+    require('time-grunt')(grunt);
+
+    require('jit-grunt')(grunt);
+
+    grunt.initConfig({
+        sass: {
+            dist: {
+                files: {
+                    'css/styles.css': 'css/styles.scss'
+                }
+            }
+        },
+        watch: {
+            files: 'css/*.scss', 
+            tasks: ['sass']
+        },
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src: [
+                        'css/*.css',
+                        '*.html',
+                        'js/*.js'
+                    ]
+                },
+                options: {
+                    watchTask: true,
+                    server: {
+                        baseDir: './'
+                    }
+                }
+            }
+        }
+
+    });
+    grunt.registerTask('css', ['sass']);
+    grunt.registerTask('default', ['browserSync', 'watch']);
+};
