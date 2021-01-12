@@ -1,3 +1,15 @@
+# VsCode-Run as Administrator
+
+Note: Any npm errors, first do the following:
+1. >npm cache clean --force
+2. Delete the node_modules folder
+3. Delete the package-lock.json file
+4. >npm install
+5. Install other requried npm modules
+
+************************************************************************************
+
+
 Go to current workspace (where package.json has to be created)
 1. ...Bootstrap4/confusion> npm install
 >npm init
@@ -8,11 +20,12 @@ Go to current workspace (where package.json has to be created)
 3. Create 'gitignore' file and include 'node_modules' in it.
 
 4. >npm install bootstrap@4.0.0 --save
-5. >npm install jquery@3.3.1 popper.js@1.12.9 --save
-6. Start lite-server
+npm install jquery@3.3.1 popper.js@1.12.9 --save
+
+5. Start lite-server
 >npm start 
 
-7. Insert the following code in the <head> of index.html file before the title.
+6. Insert the following code in the <head> of index.html file before the title.
 
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,7 +47,7 @@ For icons/buttons on webpage:
 
 1. Install FontAwesome and BootstrapSocial packages into your system for including icons/buttons in the webpage.
 >npm install font-awesome --save
->npm install bootstrap-social --save
+npm install bootstrap-social --save
 
 2. Include the following code in the <head>
   <!-- Bootstrap CSS -->
@@ -86,13 +99,13 @@ Build a distribution folder containing the files that can be deployed on a web s
 
 1. Cleaning up a Distribution Folder
 >npm install --save-dev rimraf
->npm run clean
+npm run clean
 
 "clean": "rimraf dist",
 
 2. Copying font-awesome files to distribution folder
 >npm -g install copyfiles
->npm run copyfonts
+npm run copyfonts
 
  "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
 
@@ -131,13 +144,12 @@ package.json:
 
 *************************************************************************************
 
-Grunt and Gulp Task Runners:
+Grunt Task Runner:
 
 1. >npm -g install grunt-cli
->npm install grunt --save-dev
-
-2. >npm install --save-dev grunt-sass
->npm install --save-dev time-grunt jit-grunt
+npm install grunt --save-dev
+npm install --save-dev grunt-sass
+npm install --save-dev time-grunt jit-grunt
 
 3. Create gruntfile.js
 
@@ -169,7 +181,7 @@ module.exports = function(grunt) {
 Watch and Serve Tasks:
 
 1. >npm install --save-dev grunt-contrib-watch
->npm install --save-dev grunt-browser-sync
+npm install --save-dev grunt-browser-sync
 
 2. Edit gruntfile.js
 
@@ -223,7 +235,7 @@ module.exports = function(grunt) {
 Copying the Files and Cleaning Up the Dist Folder
 
 1. >npm install grunt-contrib-copy--save-dev
->npm install grunt-contrib-clean --save-dev
+npm install grunt-contrib-clean --save-dev
 
 2. Edit gruntfile.js
 
@@ -404,11 +416,11 @@ module.exports = function(grunt) {
 Preparing the Distribution Folder and Files:
 
 1. >npm install grunt-contrib-concat@1.0.1 --save-dev
- >npm install grunt-contrib-cssmin@2.2.1 --save-dev
- >npm install grunt-contrib-htmlmin@2.4.0 --save-dev
- >npm install grunt-contrib-uglify@3.3.0 --save-dev
- >npm install grunt-filerev@2.3.1 --save-dev
- >npm install grunt-usemin@3.1.1 --save-dev
+ npm install grunt-contrib-cssmin@2.2.1 --save-dev
+ npm install grunt-contrib-htmlmin@2.4.0 --save-dev
+ npm install grunt-contrib-uglify@3.3.0 --save-dev
+ npm install grunt-filerev@2.3.1 --save-dev
+ npm install grunt-usemin@3.1.1 --save-dev
 
 2. Edit gruntfile.js
 
@@ -593,3 +605,66 @@ module.exports = function (grunt) {
 
 
 3. >grunt build
+
+
+****************************
+
+Gulp Task Runner:
+
+1. >npm install -g gulp-cli
+npm install gulp --save-dev
+
+2. Install Gulp Plugins for SASS and Browser-Sync
+>npm install gulp-sass@3.1.0  browser-sync@2.23.6 --save-dev
+
+3. Create gulpfile.js
+
+'use strict';
+
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync');
+
+4. Adding Gulp Tasks for SASS and Browser-Sync
+
+'use strict';
+
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync');
+
+ 
+gulp.task('sass', function () {
+    return gulp.src('./css/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./css'));
+    });
+    
+gulp.task('sass:watch', function () {
+gulp.watch('./css/*.scss', ['sass']);
+});
+
+gulp.task('browser-sync', function () {
+    var files = [
+    './*.html',
+    './css/*.css',
+    './img/*.{png,jpg,gif}',
+    './js/*.js'
+    ];
+
+    browserSync.init(files, {
+    server: {
+        baseDir: "./"
+    }
+    });
+
+});
+
+// Default task
+gulp.task('default', ['browser-sync'], function() {
+    gulp.start('sass:watch');
+});
+
+
+5. Execute
+>gulp
