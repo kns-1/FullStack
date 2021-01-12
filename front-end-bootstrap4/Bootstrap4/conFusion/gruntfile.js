@@ -118,7 +118,8 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {}
         },
-        // Filerev - used to replace the locally installed cookies/cache like main.css and main.js when new version of webpage is uploaded remotely
+        // Filerev - used to replace the locally installed cookies/cache like main.css and main.js when new version of webpage is uploaded remotely.
+        //This can be checked using the filename. Everytime, a new hash is appended to the filename. So if old hash is present, it is replaced by new file in the local system for consistency of the new webpage.
         filerev: {
             options: {
                 encoding: 'utf8',
