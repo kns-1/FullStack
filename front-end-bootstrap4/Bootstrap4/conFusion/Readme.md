@@ -215,3 +215,6 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('default', ['browserSync', 'watch']);
 };
+
+3. To start the localhost in your system:
+>grunt
