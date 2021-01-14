@@ -9,4 +9,12 @@ create-react-app --help
 
 4. Go to your desired folder
 > create-react-app confusion
+cd confusion
 yarn start
+
+5. Configure bootstrap into react
+>yarn add bootstrap@4.0.0
+yarn add reactstrap@5.0.0 react-popper@0.9.2
+
+
+
