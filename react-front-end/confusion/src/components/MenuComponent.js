@@ -45,7 +45,7 @@ class Menu extends Component {
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <p>
-                            This is a comment
+                            This is a comment 
                          </p>
                     </div>
                 </div>
