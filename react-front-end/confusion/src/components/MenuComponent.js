@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 class Menu extends Component {
 
@@ -9,11 +9,7 @@ class Menu extends Component {
         console.log('Menu Componenet constructor is invoked');
     }
 
-    componentDidMount() {
-        console.log('Menu Component componentDidMount is invoked');
-    }
-
-
+  
     render() {
 
         const menu = this.props.dishes.map((dish) => {

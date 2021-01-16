@@ -9,6 +9,7 @@ class Main extends Component {
 
     constructor(props) {
         super(props);
+        console.log('Main Componenet constructor is invoked');
 
         this.state = {
             dishes: DISHES,
@@ -18,9 +19,13 @@ class Main extends Component {
 
     onDishSelect(dishId) {
         this.setState({ selectedDish: dishId });
+        console.log('Main Componenet onDishSelect is invoked');
+
     }
 
     render() {
+        console.log('Main Componenet render is invoked');
+
         return (
             <div>
                 <Navbar dark color="primary">

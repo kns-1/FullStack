@@ -3,7 +3,18 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
 class DishDetail extends Component {
+
+  componentDidMount() {
+    console.log('DishDetail Component componentDidMount is invoked');
+}
+
+componentDidUpdate() {
+  console.log('DishDetail Component componentDidUpdate is invoked');
+}
+
   renderDish(dish) {
+    console.log('DishDetail Component renderDish is invoked');
+
     if (dish != null)
       return (
         <div className="row">
@@ -29,6 +40,8 @@ class DishDetail extends Component {
   }
 
   renderComments(comms) {
+    console.log('DishDetail Component renderComments is invoked');
+
     return (
       <ul className="list-unstyled">
         {comms.map((comm) => {
@@ -45,6 +58,7 @@ class DishDetail extends Component {
 
 
   render() {
+    console.log('DishDetail Component render is invoked');
     return (
       <div className="container">
         {this.renderDish(this.props.dish)}
