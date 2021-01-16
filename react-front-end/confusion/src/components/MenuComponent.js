@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 //1st-way of implementing functional components
-function RenderMenuItem({ dish, onClick }) {
+function RenderMenuItem({ dish }) {
     return (
         <Card>
             <Link to={`/menu/${dish.id}`}>
@@ -23,9 +23,7 @@ const Menu = (props) => {
     const menu = props.dishes.map((dish) => {
         return (
             <div key={dish.id} className="col-12 col-md-5 m-1">
-                <RenderMenuItem dish={dish}>
-
-                </RenderMenuItem>
+                <RenderMenuItem dish={dish}></RenderMenuItem>
             </div>
         );
     });
