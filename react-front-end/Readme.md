@@ -18,3 +18,18 @@ yarn add reactstrap@5.0.0 react-popper@0.9.2
 
 
 
+*****************************************************************
+For "FontAwesome" and "BootstrapSocial":
+
+1. >yarn add font-awesome@4.7.0
+yarn add bootstrap-social@5.1.1
+
+
+****************************************************************
+React Router
+
+1. >yarn add react-router-dom@4.2.2
+
+
+
+
