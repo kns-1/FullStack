@@ -1,6 +1,7 @@
 import Main from './components/MainComponent';
 import './App.css';
 import { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 
@@ -8,9 +9,11 @@ class App extends Component {
     console.log('App.js render is invoked');
 
     return (
-      <div>
-        <Main />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Main />
+        </div>
+      </BrowserRouter>
     );
   }
 }
