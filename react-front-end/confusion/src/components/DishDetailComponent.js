@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import CommentForm from './CommentFormComponent';
 
 //functional component implementation
 function RenderDish({ dish }) {
@@ -19,7 +20,7 @@ function RenderDish({ dish }) {
 
 
 function RenderComments({ comms }) {
-  if (comms != null)
+  if (comms != null) {
     return (
       <div className="col-12 col-md-5 m-1">
         <h4>Comments</h4>
@@ -33,8 +34,11 @@ function RenderComments({ comms }) {
             );
           })}
         </ul>
+
+        <CommentForm />
       </div>
     );
+  }
   else {
     return (
       <div></div>
@@ -59,7 +63,7 @@ const DishDetail = (props) => {
         </div>
         <div className="row">
           <RenderDish dish={props.dish} />
-          <RenderComments comms={props.dish.comments} />
+          <RenderComments comms={props.comments} />
         </div>
       </div>
     );
