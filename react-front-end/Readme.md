@@ -26,10 +26,13 @@ yarn add bootstrap-social@5.1.1
 
 
 ****************************************************************
-React Router
+React Router:
 
 1. >yarn add react-router-dom@4.2.2
 
 
+****************************************************************
+Redux:
 
-
+1. >yarn add redux@3.7.2
+yarn add react-redux@5.0.7
