@@ -13,7 +13,7 @@ cd confusion
 yarn start
 
 5. Configure bootstrap into react
->yarn add bootstrap@4.0.0
+.../Confusion>yarn add bootstrap@4.0.0
 yarn add reactstrap@5.0.0 react-popper@0.9.2
 
 
@@ -36,3 +36,8 @@ Redux:
 
 1. >yarn add redux@3.7.2
 yarn add react-redux@5.0.7
+
+****************************************************************
+React-Redux Forms:
+
+1. >yarn add react-redux-form@1.16.8
