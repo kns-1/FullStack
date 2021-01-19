@@ -76,3 +76,16 @@ Animation Components:
 
 1. >yarn add react-animation-components@3.0.0
 yarn add prop-types@15.6.0
+
+
+******************************************************************
+Building a build folder:
+
+1. ..../confusion>npm run build
+
+Deploying your React Application
+
+- To deploy your React application you need a server. Fortunately we already have the json-server available on our computer.
+- Copy the contents of the build folder to the public folder of your json-server
+- Now your React application can be accessed at the link http://localhost:3001/.
+- If you are setting up a server on the cloud or anywhere, all that you need to do is copy the contents of the build folder to the server side to deploy your React application. The exact procedure depends on the cloud service provider that you choose to use. Please consult their documentation to see the procedure to set up the server.
