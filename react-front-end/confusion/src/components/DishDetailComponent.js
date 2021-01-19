@@ -4,43 +4,52 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 
 //functional component implementation
 function RenderDish({ dish }) {
   return (
     <div className="col-12 col-md-5 m-1">
-      <Card>
-      <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-        <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText>{dish.description}</CardText>
-        </CardBody>
-      </Card>
+      <FadeTransform
+        in
+        transformProps={{
+          exitTransform: 'scale(0.5) translateY(-50%)'
+        }}>
+        <Card>
+          <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+          <CardBody>
+            <CardTitle>{dish.name}</CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+        </Card>
+      </FadeTransform>
     </div>
   );
 }
 
 
 //function RenderComments({ comms, addComment, dishId }) {
-function RenderComments({comms, postComment, dishId}) {
+function RenderComments({ comms, postComment, dishId }) {
   if (comms != null) {
     return (
       <div className="col-12 col-md-5 m-1">
         <h4>Comments</h4>
         <ul className="list-unstyled">
-          {comms.map((comm) => {
-            return (
-              <li key={comm.id}>
-                <p>{comm.comment}</p>
-                <p>-- {comm.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comm.date)))}</p>
-              </li>
-            );
-          })}
+          <Stagger in>
+            {comms.map((comm) => {
+              return (
+                <li key={comm.id}>
+                  <p>{comm.comment}</p>
+                  <p>-- {comm.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comm.date)))}</p>
+                </li>
+              );
+            })}
+          </Stagger>
         </ul>
 
-       {/* <CommentForm dishId={dishId} addComment={addComment} /> */}
-       <CommentForm dishId={dishId} postComment={postComment} />
+        {/* <CommentForm dishId={dishId} addComment={addComment} /> */}
+        <CommentForm dishId={dishId} postComment={postComment} />
       </div>
     );
   }
@@ -127,8 +136,8 @@ class CommentForm extends Component {
     // console.log("Current state is: " + JSON.stringify(values));
     // alert("Current state is: " + JSON.stringify(values));
 
-   // this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
-   this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
+    // this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
   }
 
   render() {

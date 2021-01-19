@@ -61,7 +61,7 @@ npm install json-server -g
 Start JSON server:
 >json-server --watch db.json -p 3001 -d 2000
 
-****************************************************************
+***************************************************************************
 Fetch:
 
 1. >yarn add cross-fetch@2.1.0
@@ -70,3 +70,9 @@ Fetch:
 Animations:
 
 1. >yarn add react-transition-group@2.3.0
+
+***************************************************************************
+Animation Components:
+
+1. >yarn add react-animation-components@3.0.0
+yarn add prop-types@15.6.0
