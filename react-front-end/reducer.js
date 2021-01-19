@@ -1,3 +1,5 @@
+//Note: This file is not required from Combining Reducers topic
+
 import { DISHES } from '../shared/dishes';
 import { COMMENTS } from '../shared/comments';
 import { LEADERS } from '../shared/leaders';
@@ -13,3 +15,4 @@ export const initialState = {
 export const Reducer = (state = initialState, action) => {
     return state;
 };
+
