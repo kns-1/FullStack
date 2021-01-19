@@ -3,30 +3,50 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform } from 'react-animation-components';
 
 
-function RenderLeader({ leader }) {
-    return (
-        <div key={leader.id} className="col-12 mt-5">
-            <Media tag="li">
-                <Media left middle>
-                    <Media object src={baseUrl + leader.image} alt={leader.name} />
-                </Media>
-                <Media body className="ml-5">
-                    <Media heading>{leader.name}</Media>
-                    <p>{leader.designation}</p>
-                    <p>{leader.description}</p>
-                </Media>
-            </Media>
-        </div>
-    );
+function RenderLeader({ leader, isLoading, errMess }) {
+    if (isLoading) {
+        return (
+            <Loading />
+        );
+    }
+    else if (errMess) {
+        return (
+            <h4>{errMess}</h4>
+        );
+    }
+    else {
+        return (
+            <div key={leader.id} className="col-12 mt-5">
+                <FadeTransform
+                    in
+                    transformProps={{
+                        exitTransform: 'scale(0.5) translateY(-50%)'
+                    }}>
+                    <Media tag="li">
+                        <Media left middle>
+                            <Media object src={baseUrl + leader.image} alt={leader.name} />
+                        </Media>
+                        <Media body className="ml-5">
+                            <Media heading>{leader.name}</Media>
+                            <p>{leader.designation}</p>
+                            <p>{leader.description}</p>
+                        </Media>
+                    </Media>
+                </FadeTransform >
+            </div>
+        );
+    }
 }
 
 function About(props) {
 
     const leaders = props.leaders.leaders.map((leader) => {
         return (
-            <RenderLeader leader={leader}></RenderLeader>
+            <RenderLeader leader={leader} isLoading={leader.leadLoading}
+                errMess={leader.leadErrMess}></RenderLeader>
         );
     });
 
