@@ -65,3 +65,8 @@ Start JSON server:
 Fetch:
 
 1. >yarn add cross-fetch@2.1.0
+
+***************************************************************************
+Animations:
+
+1. >yarn add react-transition-group@2.3.0
