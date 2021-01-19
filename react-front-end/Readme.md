@@ -41,3 +41,9 @@ yarn add react-redux@5.0.7
 React-Redux Forms:
 
 1. >yarn add react-redux-form@1.16.8
+
+****************************************************************
+Redux Thunk:
+
+1. >yarn add redux-thunk@2.2.0
+yarn add redux-logger@3.0.6
