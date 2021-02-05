@@ -1,4 +1,6 @@
 {
     "git.ignoreLimitWarning": true,
-    "emulator.emulatorPathWindows": "C:\\Users\\navya\\AppData\\Local\\Android\\Sdk\\emulator"
+    "emulator.emulatorPathWindows": "C:\\Users\\navya\\AppData\\Local\\Android\\Sdk\\emulator",
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "spring-boot.ls.checkJVM": false
 }
