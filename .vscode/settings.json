@@ -1,6 +1,10 @@
 {
+<<<<<<< HEAD
     "git.ignoreLimitWarning": true,
     "emulator.emulatorPathWindows": "C:\\Users\\navya\\AppData\\Local\\Android\\Sdk\\emulator",
     "java.configuration.updateBuildConfiguration": "disabled",
     "spring-boot.ls.checkJVM": false
+=======
+    "git.ignoreLimitWarning": true
+>>>>>>> parent of 409083f... git issues
 }
