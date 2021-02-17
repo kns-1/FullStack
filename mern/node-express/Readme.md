@@ -14,3 +14,4 @@ db.dishes.insert({ name: "Uthappizza", description: "Test" });
 db.dishes.find().pretty();
 var id = new ObjectId();
 id.getTimestamp();
+exit
