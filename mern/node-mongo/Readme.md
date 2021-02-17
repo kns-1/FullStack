@@ -1,4 +1,6 @@
-Start mongod server
+Start mongod server:
+mern/mongodb> mongod --dbpath=data --bind_ip 127.0.0.1
+
 
 Next, perform these steps:
 >npm init
