@@ -1,0 +1,24 @@
+{
+  "name": "node-mongo",
+  "version": "1.0.0",
+  "description": "Node mongodb demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kns-1/FullStack.git"
+  },
+  "author": "Navya Sushmitha Kovuru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kns-1/FullStack/issues"
+  },
+  "homepage": "https://github.com/kns-1/FullStack#readme",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "mongodb": "^3.0.10"
+  }
+}
