@@ -14,3 +14,8 @@ db.dishes.find().pretty();
 var id = new ObjectId();
 id.getTimestamp();
 exit
+
+****************************************
+
+Express sessions:
+>npm install express-session@1.15.6 session-file-store@1.2.0 --save
